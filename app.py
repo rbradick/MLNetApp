@@ -53,7 +53,7 @@ def load_model():
                 for chunk in r.iter_content(chunk_size=8192):
                     f.write(chunk)
     model = MLNet()
-    model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu'), weights_only=False))
     model.eval()
     return model
 
